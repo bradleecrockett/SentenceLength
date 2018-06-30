@@ -17,9 +17,7 @@ def findAverageSentence(filePath, delimiters, minLength):
     else:
         aveSentenceLength = words
 
-    round(aveSentenceLength)
-
-    return aveSentenceLength
+    return round(aveSentenceLength, 0)
 
 
 userFile = input("Enter the file path to the .txt file you wish to analyze.")
