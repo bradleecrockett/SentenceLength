@@ -1,5 +1,5 @@
 # SentenceLength
-Command Line tool that determines the average sentence length of a text file
+Create a command line tool that determines the average sentence length of a text file
 
 Requirements
 
