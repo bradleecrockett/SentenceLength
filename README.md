@@ -1,7 +1,7 @@
 # SentenceLength
 Create a command line tool that determines the average sentence length of a text file
 
-Requirements
+## Software Requirements
 
 * No Special Libraries (Vanilla Python 3)
 * Script should run from command line without any special options
