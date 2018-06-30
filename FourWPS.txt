@@ -1,0 +1,2 @@
+This has four words. This does not. This has three. This sentence has five words.
+The average sentence is four.
