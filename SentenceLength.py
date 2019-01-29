@@ -1,4 +1,5 @@
 import os
+import math
 
 
 def findAverageSentence(filePath, delimiters, minLength):
