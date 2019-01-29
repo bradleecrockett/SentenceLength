@@ -24,8 +24,12 @@ userFile = input("Enter the file path to the .txt file you wish to analyze.")
 userDelimeters = input("Enter the characters (punctuation) that you want to be sentence "
                        "delimiters separated by spaces")
 userDelimeters = userDelimeters.split(" ")
-minLength = eval(input("Enter the minimum length of a word (must be a positive integer)"))
-if (minLength < 1):
-    minLength = 1
+
+minLength = -1
+while not(minLength > 0):
+    try:
+        minLength = eval(input("Enter the minimum length of a word: "))
+    except (NameError, SyntaxError):
+        print("That's not a valid number!")
 
 print("The average sentence length is", findAverageSentence(userFile, userDelimeters, minLength))
