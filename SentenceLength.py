@@ -13,15 +13,16 @@ def findAverageSentence(filePath, delimiters, minLength):
     delimiters = '[{0}]'.format(delimiters.replace(" ", ""))
     sentences = re.split(delimiters, textInFile)
 
+    
     # Remove empty strings from the sentences list
     while '' in sentences:
         sentences.remove('')
 
+        
     # Remove extra whitespace from beginning and end of each sentence
     for i in range(len(sentences)):
         sentences[i] = sentences[i].strip()
-
-    print(sentences)
+        
 
     if (len(sentences) > 0):
         aveSentenceLength = len(words) / len(sentences)
