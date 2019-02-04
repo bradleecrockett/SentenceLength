@@ -7,7 +7,6 @@ def findAverageSentence(filePath, delimiters, minLength):
 
     file = open(filePath)
     textInFile = file.read()
-    print(minLength)
     words = textInFile.split(" ")
 
     wordsToRemove = []
@@ -20,12 +19,6 @@ def findAverageSentence(filePath, delimiters, minLength):
                 wordsToRemove.append(i)
     for i in wordsToRemove:
         words.remove(i)
-
-
-
-
-
-    # print(words)
     
     
     # Using regex for delimiters
@@ -53,35 +46,20 @@ def findAverageSentence(filePath, delimiters, minLength):
 
 
 
-userFile = input("Enter the file path to the .txt file you wish to analyze.")
-userDelimeters = input("Enter the characters (punctuation) that you want to be sentence "
-                       "delimiters separated by spaces")
-userDelimeters = userDelimeters.split(" ")
-
-
-minLength = -1
-while not(minLength > 0):
-    try:
-        minLength = eval(input("Enter the minimum length of a word: "))
-    except (NameError, SyntaxError):
-        print("That's not a valid number!")
-
 def main():
-
     userFile = input("Enter the file path to the .txt file you wish to analyze.")
-
     userDelimeters = input("Enter the characters (punctuation) that you want to be sentence "
-                           "delimiters separated by spaces")
-
-    minLength = eval(input("Enter the minimum length of a word (must be a positive integer)"))
-
-    if (minLength < 1):
-        minLength = 1
-
-    print("The average sentence length is", findAverageSentence(userFile, userDelimeters, minLength))
+                        "delimiters separated by spaces")
 
 
+    minLength = -1
+    while not(minLength > 0):
+        try:
+            minLength = eval(input("Enter the minimum length of a word: "))
+        except (NameError, SyntaxError):
+            print("That's not a valid number!")
+    
+    print("Average length of the word: ", findAverageSentence(userFile, userDelimeters, minLength))
 
-if __name__ == '__main__':
-    main()
 
+main()
