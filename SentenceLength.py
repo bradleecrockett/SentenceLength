@@ -1,3 +1,4 @@
+
 import os
 import re
 
@@ -9,6 +10,12 @@ def findAverageSentence(filePath, delimiters, minLength):
 
     words = textInFile.split(" ")
 
+    for word in words:
+        if (len(word) < minLength):
+            words.remove(word)
+    # print(words)
+    
+    
     # Using regex for delimiters
     delimiters = '[{0}]'.format(delimiters.replace(" ", ""))
     sentences = re.split(delimiters, textInFile)
