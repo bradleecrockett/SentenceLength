@@ -1,6 +1,6 @@
-
-import os
 import re
+import os
+import math
 
 
 def findAverageSentence(filePath, delimiters, minLength):
@@ -36,8 +36,21 @@ def findAverageSentence(filePath, delimiters, minLength):
     else:
         aveSentenceLength = words
 
-    return round(aveSentenceLength, 0)
+    return math.floor(aveSentenceLength)
 
+
+
+userFile = input("Enter the file path to the .txt file you wish to analyze.")
+userDelimeters = input("Enter the characters (punctuation) that you want to be sentence "
+                       "delimiters separated by spaces")
+userDelimeters = userDelimeters.split(" ")
+
+minLength = -1
+while not(minLength > 0):
+    try:
+        minLength = eval(input("Enter the minimum length of a word: "))
+    except (NameError, SyntaxError):
+        print("That's not a valid number!")
 
 def main():
 
@@ -52,6 +65,7 @@ def main():
         minLength = 1
 
     print("The average sentence length is", findAverageSentence(userFile, userDelimeters, minLength))
+
 
 
 if __name__ == '__main__':
