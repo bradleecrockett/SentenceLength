@@ -1,4 +1,13 @@
-print ("this is a test")
+
+directory = input("Where is the file located? ")
+
+try:
+    textFile = open(directory, "r")
+    print(textFile.read())
+
+except:
+    print("Please enter a valid directory")
+    openFile()
 
 
 
@@ -37,29 +46,3 @@ print ("this is a test")
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-fileName = input("enter fileName")
-file = open(fileName, "r")
-for line in file:
-    print (line)
-
-file.close()
