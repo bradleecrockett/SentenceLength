@@ -1,6 +1,3 @@
-
-
-
 def sentenceLength (directory, delimiters, minLength):
     lengths = []
     try:
