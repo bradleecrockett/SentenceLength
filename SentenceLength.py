@@ -1,8 +1,3 @@
-
-directory = input("Where is the file located? ")
-delimiter = input("What are the sentence delimiters? ")
-minLength = input("What is the minimum length of a word? ")
-
 def sentenceLength (directory, delimiters, minLength):
     lengths = []
     try:
@@ -22,18 +17,13 @@ def sentenceLength (directory, delimiters, minLength):
                 letterCount = 0
             else:
                 letterCount += 1
-        print(lengths) #delete
         average = 0
         count = 0
         for num in lengths:
             average += num
             count += 1
-        print(average) #delete
-        print(count) #delete
         average = average/count
-        print(average) #delete
         average = round(average)
-        print(average) #delete
         return average
 
     except:
@@ -41,6 +31,11 @@ def sentenceLength (directory, delimiters, minLength):
         openFile()
     textFile.close();
 
-print(sentenceLength(directory, delimiter, minLength))
-
+stillRunning = "y"
+while (stillRunning == "y") :
+    stillRunning = input("Would you like to see the average word length in a sentence?[y/n]")
+    directory = input("Where is the file located? ")
+    delimiter = input("What are the sentence delimiters? ")
+    minLength = input("What is the minimum length of a word? ")
+    print("" + str(sentenceLength(directory, delimiter, minLength)) + (" is the average word length of the given file. "))
 
