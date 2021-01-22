@@ -23,17 +23,17 @@ def findAverageSentence(filePath, delimiters, minLength):
 def main():
     con = True
     while con:
-        userFile = input("Enter the file path to the .txt file you wish to analyze.")
+        userFile = input("Enter the file path to the .txt file you wish to analyze: ")
         try:
             testFile = open(userFile)
             print("Great!")
             con = False
         except:
-            print("That is an invalid file path!")
+            print("Error. You may have entered an invalid file path.")
     userDelimeters = input("Enter the characters (punctuation) that you want to be sentence "
-                           "delimiters separated by spaces")
+                           "delimiters separated by spaces: ")
     userDelimeters = userDelimeters.split(" ")
-    minLength = eval(input("Enter the minimum length of a word (must be a positive integer)"))
+    minLength = eval(input("Enter the minimum length of a word (must be a positive integer): "))
     if (minLength < 1):
         minLength = 1
 
