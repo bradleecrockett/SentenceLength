@@ -18,7 +18,7 @@ def findAverageSentence(filePath, delimiters, minLength):
         print(strdelim+ " is not in this text file")
     sentences = textInFile.split(strdelim)
     
-    if strdelim==".":
+    if "" in sentences:
         sentences.remove("")
 
     # print(sentences)
