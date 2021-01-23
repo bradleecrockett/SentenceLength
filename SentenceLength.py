@@ -5,20 +5,16 @@ def findAverageSentence(filePath, delimiters, minLength):
     file = open(filePath)
     textInFile = file.read()
 
-    #Delete new line and period characters from words list
+    # Delete new line and period characters from words list
     PrePreWords = textInFile.replace('\n', ' ')
     PreWords = PrePreWords.replace('.', '')
     words = PreWords.split(" ")
-
-    #print(words)
-    #print(len(words))
+    # print(words)
 
     sentences = textInFile.split(".")
     sentences.remove("")
-
-    #print(len(sentences))
-
-    #Check each word against specified minimum length of a word
+    
+    # Check each word against specified minimum length of a word
     wordsCounted = 0
     for word in words:
         if len(word) >= minLength:
@@ -26,25 +22,31 @@ def findAverageSentence(filePath, delimiters, minLength):
             continue
         else:
             continue
-    #Words counted
-    #print(wordsCounted)
 
     # print(sentences)
     if (len(sentences) > 0):
-        aveSentenceLength = wordsCounted / len(sentences)
+        aveSentenceLength =  wordsCounted / len(sentences)
     else:
         aveSentenceLength = words
 
-    #Round down to nearest integer
+    # Round down to nearest integer
     return math.floor(aveSentenceLength)
 
 
 def main():
-    userFile = input("Enter the file path to the .txt file you wish to analyze.")
+    con = True
+    while con:
+        userFile = input("Enter the file path to the .txt file you wish to analyze: ")
+        try:
+            testFile = open(userFile)
+            print("Great!")
+            con = False
+        except:
+            print("Error. You may have entered an invalid file path.")
     userDelimeters = input("Enter the characters (punctuation) that you want to be sentence "
-                           "delimiters separated by spaces")
+                           "delimiters separated by spaces: ")
     userDelimeters = userDelimeters.split(" ")
-    minLength = eval(input("Enter the minimum length of a word (must be a positive integer)"))
+    minLength = eval(input("Enter the minimum length of a word (must be a positive integer): "))
     if (minLength < 1):
         minLength = 1
 
@@ -52,3 +54,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+    
