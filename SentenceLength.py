@@ -1,23 +1,42 @@
 import os
-
+import math
 
 def findAverageSentence(filePath, delimiters, minLength):
     file = open(filePath)
     textInFile = file.read()
 
-    words = textInFile.split(" ")
-    # print(words)
+    #Delete new line and period characters from words list
+    PrePreWords = textInFile.replace('\n', ' ')
+    PreWords = PrePreWords.replace('.', '')
+    words = PreWords.split(" ")
+
+    #print(words)
+    #print(len(words))
 
     sentences = textInFile.split(".")
     sentences.remove("")
 
+    #print(len(sentences))
+
+    #Check each word against specified minimum length of a word
+    wordsCounted = 0
+    for word in words:
+        if len(word) >= minLength:
+            wordsCounted = wordsCounted + 1
+            continue
+        else:
+            continue
+    #Words counted
+    #print(wordsCounted)
+
     # print(sentences)
     if (len(sentences) > 0):
-        aveSentenceLength = len(words) / len(sentences)
+        aveSentenceLength = wordsCounted / len(sentences)
     else:
         aveSentenceLength = words
 
-    return round(aveSentenceLength, 0)
+    #Round down to nearest integer
+    return math.floor(aveSentenceLength)
 
 
 def main():
