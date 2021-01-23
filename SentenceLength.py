@@ -4,19 +4,27 @@ import math
 def findAverageSentence(filePath, delimiters, minLength):
     file = open(filePath)
     textInFile = file.read()
+    punctuation = ["!", "?", ":", ";", ",", "."]
 
-    # Delete new line and period characters from words list
-    PrePreWords = textInFile.replace('\n', ' ')
-    PreWords = PrePreWords.replace('.', '')
+    # Delete new line characters from words list
+    PreWords = textInFile.replace('\n', ' ')
     words = PreWords.split(" ")
-    # print(words)
+    #print(words)
 
     sentences = textInFile.split(".")
     sentences.remove("")
     
-    # Check each word against specified minimum length of a word
+    # Count words that meet min length requirement
     wordsCounted = 0
+
     for word in words:
+        # Check that ending punctuation characters aren't being factored into word length calculation
+        for i in punctuation:
+            if i == word[-1]:
+                word = word.replace(word[-1], '')
+            else:
+                continue
+
         if len(word) >= minLength:
             wordsCounted = wordsCounted + 1
             continue
