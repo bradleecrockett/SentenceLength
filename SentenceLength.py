@@ -1,15 +1,25 @@
 import os
 
+def convertToString(delimiter):
+    new = ""
+    for x in delimiter:
+        new += x
+    return new
 
 def findAverageSentence(filePath, delimiters, minLength):
     file = open(filePath)
     textInFile = file.read()
+    strdelim=convertToString(delimiters)
 
     words = textInFile.split(" ")
     # print(words)
 
-    sentences = textInFile.split(".")
-    sentences.remove("")
+    if strdelim not in textInFile:
+        print(strdelim+ " is not in this text file")
+    sentences = textInFile.split(strdelim)
+    
+    if "" in sentences:
+        sentences.remove("")
 
     # print(sentences)
     if (len(sentences) > 0):
