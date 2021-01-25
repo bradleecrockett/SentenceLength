@@ -12,7 +12,12 @@ def findAverageSentence(filePath, delimiters, minLength):
     strdelim=convertToString(delimiters)
 
     words = textInFile.split(" ")
-    # print(words)
+    print(words)
+    print(len(words))
+
+    for x in words:
+        if len(x) < minLength:
+            words.remove(x)
 
     if strdelim not in textInFile:
         print(strdelim+ " is not in this text file")
@@ -21,13 +26,14 @@ def findAverageSentence(filePath, delimiters, minLength):
     if "" in sentences:
         sentences.remove("")
 
-    # print(sentences)
+    print(sentences)
     if (len(sentences) > 0):
         aveSentenceLength = len(words) / len(sentences)
     else:
         aveSentenceLength = words
 
     return round(aveSentenceLength, 0)
+
 
 
 def main():
