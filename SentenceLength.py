@@ -1,9 +1,19 @@
 import os
+
 import math
+
+
+def convertToString(delimiter):
+    new = ""
+    for x in delimiter:
+        new += x
+    return new
+
 
 def findAverageSentence(filePath, delimiters, minLength):
     file = open(filePath)
     textInFile = file.read()
+
     punctuation = ["!", "?", ":", ";", ",", "."]
 
     # Delete new line characters from words list
@@ -31,7 +41,26 @@ def findAverageSentence(filePath, delimiters, minLength):
         else:
             continue
 
-    # print(sentences)
+
+    strdelim=convertToString(delimiters)
+
+    words = textInFile.split(" ")
+    print(words)
+    print(len(words))
+
+    for x in words:
+        if len(x) < minLength:
+            words.remove(x)
+
+
+    if strdelim not in textInFile:
+        print(strdelim+ " is not in this text file")
+    sentences = textInFile.split(strdelim)
+    
+    if "" in sentences:
+        sentences.remove("")
+
+    print(sentences)
     if (len(sentences) > 0):
         aveSentenceLength =  wordsCounted / len(sentences)
     else:
@@ -39,6 +68,7 @@ def findAverageSentence(filePath, delimiters, minLength):
 
     # Round down to nearest integer
     return math.floor(aveSentenceLength)
+
 
 
 def main():
