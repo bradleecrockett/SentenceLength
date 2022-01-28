@@ -2,7 +2,12 @@ import os
 
 
 def findAverageSentence(filePath, delimiters, minLength):
-    file = open(filePath)
+    try:
+        file = open(filePath)
+    except:
+        print("This file was either invalid or not found. Please restart the program and use a proper file name.")
+        exit()
+    
     textInFile = file.read()
 
     words = textInFile.split(" ")
