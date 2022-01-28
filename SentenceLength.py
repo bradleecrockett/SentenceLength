@@ -25,9 +25,18 @@ def main():
     userDelimeters = input("Enter the characters (punctuation) that you want to be sentence "
                            "delimiters separated by spaces")
     userDelimeters = userDelimeters.split(" ")
-    minLength = eval(input("Enter the minimum length of a word (must be a positive integer)"))
-    if (minLength < 1):
-        minLength = 1
+    goodLength = False
+    minLength = ""
+    while goodLength == True:
+        minLength = eval(input("Enter the minimum length of a word (must be a positive integer)"))
+        try:
+            goodLength = True
+            if (minLength < 1):
+                minLength = 1
+        except TypeError:
+            print("Please enter a valid input: ")
+            goodLength = False
+    
 
     print("The average sentence length is", findAverageSentence(userFile, userDelimeters, minLength))
 
