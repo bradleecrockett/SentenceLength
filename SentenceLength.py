@@ -1,5 +1,6 @@
 import os
 import sys
+from tkinter import Y
 
 file_paths = sys.argv[1:]
 
@@ -15,8 +16,11 @@ def findAverageSentence(filePath, delimiters, minLength):
     words = textInFile.split(" ")
     # print(words)
 
-    sentences = textInFile.split(".")
-    sentences.remove("")
+    for i in delimiters:
+        sentences = textInFile.split(i)
+        print("yep")
+    #sentences.remove("")
+    print(sentences)
 
     # print(sentences)
     if (len(sentences) > 0):
