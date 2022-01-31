@@ -52,5 +52,7 @@ def main():
     print("The average sentence length is", findAverageSentence(userFile, userDelimeters, minLength))
     print("The average letter per words is:", findAverageWord(userFile, userDelimeters))
 
+    #hi <3
+
 if __name__ == "__main__":
     main()
