@@ -28,8 +28,8 @@ def findAverageSentence(filePath, delimiters, minLength):
 
 
 def main():
-    stay = 1
-    while stay == 1:
+
+    while True:
         go_again = input("Would you like to enter a file? y/n: ")
         if go_again == "y":
             if (file_paths):
@@ -45,8 +45,8 @@ def main():
 
             print("The average sentence length is", findAverageSentence(userFile, userDelimeters, minLength))
         elif go_again == "n":
-         stay = 2
-         break
+            break
+
 
 
 if __name__ == "__main__":
