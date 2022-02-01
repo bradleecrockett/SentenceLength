@@ -34,23 +34,25 @@ def main():
         print("File not .txt please enter a new file")
         userFile = input("Enter the file path to the .txt file you wish to analyze. ")
     userDelimeters = input("Enter the characters (punctuation) that you want to be sentence "
-                           "delimiters separated by spaces. ")
+                           "breaks separated by spaces. ")
     userDelimeters = userDelimeters.split(" ")
-    minLength = eval(input("Enter the minimum length of a word (must be a positive integer). "))
+    minLength = eval(input("Enter the minimum character length of a word (must be a positive integer). "))
     if (minLength < 1):
         minLength = 1
 
+    print("The average sentence length is", findAverageSentence(userFile, userDelimeters, minLength))
+
     while True:
-        go_again = input("Would you like to enter a file? y/n: ")
+        go_again = input("Would you like to enter a new file? y/n: ")
         if go_again == "y":
             if (file_paths):
                 userFile = file_paths[0]
             else:
                 userFile = input("Enter the file path to the .txt file you wish to analyze.")
             userDelimeters = input("Enter the characters (punctuation) that you want to be sentence "
-                                "delimiters separated by spaces")
+                                "breaks separated by spaces")
             userDelimeters = userDelimeters.split(" ")
-            minLength = eval(input("Enter the minimum length of a word (must be a positive integer)"))
+            minLength = eval(input("Enter the minimum character length of a word (must be a positive integer)"))
             if (minLength < 1):
                 minLength = 1
 
