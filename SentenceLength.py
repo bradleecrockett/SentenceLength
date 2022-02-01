@@ -21,15 +21,33 @@ def findAverageSentence(filePath, delimiters, minLength):
 
 
 def main():
-    userFile = input("Enter the file path to the .txt file you wish to analyze. ")
-    userDelimeters = input("Enter the characters (punctuation) that you want to be sentence "
+    for i in range(5):
+        userFile = input("Enter the file path to the .txt file you wish to analyze. ")
+        userDelimeters = input("Enter the characters (punctuation) that you want to be sentence "
                            "delimiters separated by spaces" )
-    userDelimeters = userDelimeters.split(" ")
-    minLength = eval(input("Enter the minimum length of a word (must be a positive integer): "))
-    if (minLength < 1):
-        minLength = 1
+        userDelimeters = userDelimeters.split(" ")
+        minLength = eval(input("Enter the minimum length of a word (must be a positive integer): "))
+        if (minLength < 1):
+            minLength = 1
 
-    print("The average sentence length is", findAverageSentence(userFile, userDelimeters, minLength))
+        print("The average sentence length is", findAverageSentence(userFile, userDelimeters, minLength))
 
-if __name__ == "__main__":
-    main()
+        #uses the last average sentence length in order to compare it to your current average sentence length
+        int, lastAveSentenceLength = input("Enter the average sentence length of your last essay: ")
+
+        if lastAveSentenceLength > findAverageSentence(userFile, userDelimeters, minLength):
+            print("You increased your average sentence length in this text document compare to your last one.")
+        elif lastAveSentenceLength == findAverageSentence(userFile, userDelimeters, minLength):
+            print("Your average sentence length is equal to that of your last text document.")
+        else:
+            print("You decreased your average sentence length in this text document compared to your last one.")
+
+        if __name__ == "__main__":
+            main()
+
+        another = input("Would you like to check another document? ")
+        if another == ("yes", "Yes", "YES"):
+            continue
+        else:
+            break
+
