@@ -12,8 +12,8 @@ def findAverageSentence(filePath, delimiters, minLength):
         exit()
     
     textInFile = file.read()
-
-    words = textInFile.split(" ")
+    words = textInFile.split("  ")
+    words = words.split(" ")
     # print(words)
 
     sentences = textInFile.split(".")
@@ -50,8 +50,6 @@ def findAverageWord(filePath, delimiters):
 
 
 def main():
-<<<<<<< HEAD
-=======
     userFile = input("Enter the file path to the .txt file you wish to analyze. ")
     #checks if userFile is a .txt or not vv 
     if not os.path.isfile(userFile):
@@ -63,7 +61,6 @@ def main():
     minLength = eval(input("Enter the minimum character length of a word (must be a positive integer). "))
     if (minLength < 1):
         minLength = 1
->>>>>>> 956f492983bfa0f20c5d0773836881848245d649
 
     print("The average sentence length is", findAverageSentence(userFile, userDelimeters, minLength))
     print("The average letter per words is:", findAverageWord(userFile, userDelimeters))
