@@ -8,8 +8,12 @@ def findAverageSentence(filePath, delimiters, minLength):
     words = textInFile.split(" ")
     # print(words)
 
-    sentences = textInFile.split(".")
-    sentences.remove("")
+
+    sentences = textInFile.split(str(delimiters)) #Now takes in delimiters to split into sentance list
+
+    for i in sentences: #removes empty lists from sentance count
+        if str(i) == "":
+            sentences.remove("")
 
     # print(sentences)
     if (len(sentences) > 0):
@@ -24,7 +28,7 @@ def main():
     userFile = input("Enter the file path to the .txt file you wish to analyze.")
     userDelimeters = input("Enter the characters (punctuation) that you want to be sentence "
                            "delimiters separated by spaces")
-    userDelimeters = userDelimeters.split(" ")
+    #userDelimeters = userDelimeters.split(" ")
     minLength = eval(input("Enter the minimum length of a word (must be a positive integer)"))
     if (minLength < 1):
         minLength = 1
