@@ -2,6 +2,9 @@ import os
 
 
 def findAverageSentence(filePath, delimiters, minLength):
+    
+    
+        
     file = open(filePath)
     textInFile = file.read()
 
@@ -21,7 +24,11 @@ def findAverageSentence(filePath, delimiters, minLength):
 
 
 def main():
-    userFile = input("Enter the file path to the .txt file you wish to analyze.")
+    userFile = input("Enter the file path to the .txt file you wish to analyze. ")
+    while not os.path.isfile(userFile):
+        userFile = input("the file path was wrong maybe try again :( ")
+        
+        
     userDelimeters = input("Enter the characters (punctuation) that you want to be sentence "
                            "delimiters separated by spaces")
     userDelimeters = userDelimeters.split(" ")
