@@ -34,19 +34,13 @@ def main():
     while error:
         try:
             minLength = int(input("Enter the minimum length of a word (must be a positive integer)"))
-            error = False
-        except: ValueError
-        print("Input must be an integer")
-    """ while error:
-        minLength = input("Enter the minimum length of a word (must be a positive integer)")
-        if (type(minLength) is int):
             if (minLength >= 1):
                 error = False
-            else:
-                print("Invalid integer.")
-        else:
-            print("Input must be an integer.")
-    """
+        except: ValueError
+        if (error):
+            print("Input must be a valid, positive integer")
+
+        
 
     print("The average sentence length is", findAverageSentence(userFile, userDelimeters, minLength))
 
