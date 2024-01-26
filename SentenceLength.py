@@ -6,12 +6,12 @@ def findAverageSentence(filePath, delimiters, minLength):
     textInFile = file.read()
 
     words = textInFile.split(" ")
-    # print(words)
+    print (words)
 
     sentences = textInFile.split(".")
     sentences.remove("")
 
-    # print(sentences)
+    print(sentences) 
     if (len(sentences) > 1):
         aveSentenceLength = len(words) / len(sentences)
     else:
