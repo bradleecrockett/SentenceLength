@@ -32,4 +32,5 @@ def main():
     print("The average sentence length is", findAverageSentence(userFile, userDelimeters, minLength))
 
 if __name__ == "__main__":
-    main()
+    while True: 
+     main()
