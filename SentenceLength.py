@@ -39,7 +39,9 @@ def main():
         if (minLength[i] in "1234567890") == False:
             minLenPro = minLenPro + ""
         else:
-            minLenPro = minLenPro + minLength[i] 
+            minLenPro = minLenPro + minLength[i]
+    if minLenPro == "":
+        minLenPro = 3
 
     # print(minLenPro)
 
