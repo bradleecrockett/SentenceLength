@@ -41,7 +41,7 @@ def main():
         else:
             minLenPro = minLenPro + minLength[i] 
 
-    print(minLenPro)
+    # print(minLenPro)
 
     print("The average sentence length is", findAverageSentence(userFile, userDelimeters, minLength))
 
