@@ -8,6 +8,12 @@ def findAverageSentence(filePath, delimiters, minLength):
     words = textInFile.split(" ")
     # print(words)
 
+    # Loop that discludes any words below minimum length - Alexie
+    for word in words:
+        if len(word) < minLength:
+            words.remove(word)
+    # End - Alexie
+    
     sentences = textInFile.split(".")
     sentences.remove("")
 
@@ -17,7 +23,7 @@ def findAverageSentence(filePath, delimiters, minLength):
     else:
         aveSentenceLength = words
 
-    return round(aveSentenceLength, 0)
+    return int(round(aveSentenceLength, 0))
 
 
 def main():
