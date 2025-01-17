@@ -42,10 +42,9 @@ def main():
             minLenPro = minLenPro + minLength[i]
     if minLenPro == "":
         minLenPro = 3
-
-    # print(minLenPro)
-
-    print("The average sentence length is", findAverageSentence(userFile, userDelimeters, minLength))
+        mlp = int(minLenPro)
+        
+    print("The average sentence length is", findAverageSentence(userFile, userDelimeters, mlp))
 
 if __name__ == "__main__":
     main()
