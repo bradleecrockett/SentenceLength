@@ -15,15 +15,21 @@ def findAverageSentence(filePath, delimiters, minLength):
 
     sentences = textInFile.split(".")
     delimiters = delimiters.split()
+    #For every delimiter (symbol) loop through
     for i in range(len(delimiters)):
-        delimiter = delimiters[i]
-        if len(delimiters) > 0:
+        delimiter = delimiters[i] #go through one delimiter at a time
+        if len(delimiters) > 0: #make sure there is delimiters
             for j in range(len(sentences)):
-                if delimiter in sentences[j]:
+                if delimiter in sentences[j]: #go through each sentence and check if it contains the delimiter
                     additionalSentences = (sentences[j].split(str(delimiter)))
-                    for sentence in additionalSentences:
-                        sentences.append(sentence)
-                    sentences.remove(sentences[j])
+                    for sentence in additionalSentences: 
+                        sentences.append(sentence) 
+                        #Takes the split sentence which starts as a list(1 item) and turns it into 
+                        #two list elements in sentences(two list items)
+                        #Ex: ["other sentence.", ["blah blah? yes."]](counts as 2 length)
+                        #Turns into ["other sentence.", "blah blah", "yes."]](3 length for more accurate calculation)
+                    sentences.remove(sentences[j])#fixes sentence number
+
     sentences.remove("")
 
     if (len(sentences) > 0):
