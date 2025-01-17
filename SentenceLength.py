@@ -1,9 +1,13 @@
 import os
 
 
-def findAverageSentence(filePath, delimiters, minLength):
-    file = open(filePath)
-    textInFile = file.read()
+def findAverageSentence(filePath, delimiters, minLength, textOrFile):
+    if int(textOrFile)==1:
+
+        file = open(filePath)
+        textInFile = file.read()
+    elif int(textOrFile)==2:
+        textInFile=input("Begin typing: ")
 
     words = textInFile.split(" ")
     # print(words)
@@ -44,7 +48,20 @@ def findAverageSentence(filePath, delimiters, minLength):
 
 
 def main():
-    userFile = input("Enter the file path to the .txt file you wish to analyze.\n")
+    v=1
+    fileOrType = input("Are you gonna use (1) a text file or (2) type in the sentences? Please input the number of the option you want. \n")
+    while v==1:
+        if (int(fileOrType) != 1) and (int(fileOrType) !=2):
+            
+            fileOrType = input("Please input a valid number (1) a text file or (2) type in the sentences. \n")
+            
+        elif int(fileOrType)==1:
+            userFile = input("Enter the file path to the .txt file you wish to analyze.\n")
+            
+            break
+        else: 
+            userFile="n/a"
+            break
     userDelimeters = input("Enter the characters (punctuation) that you want to be sentence delimiters separated by spaces.\n")
     minLength = input("Enter the minimum length of a word (must be a positive integer).\n")
     
@@ -52,7 +69,7 @@ def main():
     desiredLength = int(input("Is there a desired average WPS.\n"))
 
     minLenPro = ""
-
+    mlp=int(minLength)
     for i in range(len(minLength)):
         # print("1234567890".contains(minLength[i]))
         if (minLength[i] in "1234567890") == False:
@@ -75,7 +92,7 @@ def main():
         minLenPro = 3
         mlp = int(minLenPro)
         
-    print("The average sentence length is", findAverageSentence(userFile, userDelimeters, mlp))
+    print("The average sentence length is", findAverageSentence(userFile, userDelimeters, mlp, fileOrType))
 
 
 if __name__ == "__main__":
