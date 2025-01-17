@@ -42,14 +42,7 @@ def main():
     
     minLenPro = ""
 
-    for i in range(len(minLength)):
-        # print("1234567890".contains(minLength[i]))
-        if (minLength[i] in "1234567890") == False:
-            minLenPro = minLenPro + ""
-        else:
-            minLenPro = minLenPro + minLength[i] 
-
-    print(minLenPro)
+    
 
     print("The average sentence length is", findAverageSentence(userFile, userDelimeters, minLength))
 
