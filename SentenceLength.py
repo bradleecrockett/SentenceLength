@@ -47,11 +47,12 @@ def main():
         if (minLength[i] in "1234567890") == False:
             minLenPro = minLenPro + ""
         else:
-            minLenPro = minLenPro + minLength[i] 
-
-    print(minLenPro)
-
-    print("The average sentence length is", findAverageSentence(userFile, userDelimeters, minLength))
+            minLenPro = minLenPro + minLength[i]
+    if minLenPro == "":
+        minLenPro = 3
+        mlp = int(minLenPro)
+        
+    print("The average sentence length is", findAverageSentence(userFile, userDelimeters, mlp))
 
 if __name__ == "__main__":
     main()
