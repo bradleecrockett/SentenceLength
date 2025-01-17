@@ -10,7 +10,7 @@ def findAverageSentence(filePath, delimiters, minLength):
 
     # Loop that discludes any words below minimum length - Alexie
     for word in words:
-        if len(word) < minLength:
+        if len(word) < int(minLength):
             words.remove(word)
     # End - Alexie
     
@@ -32,6 +32,9 @@ def main():
     userDelimeters = userDelimeters.split(" ")
     minLength = input("Enter the minimum length of a word (must be a positive integer).\n")
     
+    # Asks for a desired min average WPS
+    desiredLength = int(input("Is there a desired average WPS.\n"))
+
     minLenPro = ""
 
     for i in range(len(minLength)):
@@ -44,6 +47,11 @@ def main():
     print(minLenPro)
 
     print("The average sentence length is", findAverageSentence(userFile, userDelimeters, minLength))
+    #Checks if 
+    if (int(findAverageSentence(userFile, userDelimeters, minLength)) < desiredLength):
+        print("The AWPS is lower than desired")
+    elif (int(findAverageSentence(userFile, userDelimeters, minLength)) >= desiredLength):
+        print("The AWPS meets your desired amount")
 
 if __name__ == "__main__":
     main()
