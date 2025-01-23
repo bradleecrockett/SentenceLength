@@ -47,6 +47,7 @@ def main():
     userFile = input("Enter the file path to the .txt file you wish to analyze.\n")
     userDelimeters = input("Enter the characters (punctuation) that you want to be sentence delimiters separated by spaces.\n")
     minLength = input("Enter the minimum length of a word (must be a positive integer).\n")
+
     
     # Asks for a desired min average WPS
     desiredLength = int(input("Is there a desired average WPS.\n"))
@@ -59,7 +60,7 @@ def main():
             minLenPro = minLenPro + ""
         else:
 # 
-#             minLenPro = minLenPro + minLength[i] 
+            minLenPro = minLenPro + minLength[i] 
 
 #     print(minLenPro)
 
@@ -70,12 +71,18 @@ def main():
 #     elif (int(findAverageSentence(userFile, userDelimeters, minLength)) >= desiredLength):
 #         print("The AWPS meets your desired amount")
 # 
-            minLenPro = minLenPro + minLength[i]
-    if minLenPro == "":
-        minLenPro = 3
-        mlp = int(minLenPro)
-        
-    print("The average sentence length is", findAverageSentence(userFile, userDelimeters, mlp))
+    #        minLenPro = minLenPro + minLength[i]
+    #if minLenPro == "":
+    #    minLenPro = 3
+    #    mlp = int(minLenPro)
+#   
+
+    #Dylan
+    if (findAverageSentence(userFile, userDelimeters, minLength) != desiredLength):  
+        print("The average sentence length is", findAverageSentence(userFile, userDelimeters, minLength))
+    else:
+        print("You have the desired words per sentence of ", desiredLength)
+    #End Dylan
 
 
 if __name__ == "__main__":
